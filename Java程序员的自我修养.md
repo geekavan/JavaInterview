@@ -370,7 +370,7 @@ class Singleton {
 
 第一层检验：如果直接加锁的话，每一个线程过来都要判断锁，开销比较大，只有当singleton为空的时候才需要判断锁，这样的话性能更高一点
 
-## ✍怎么在Spring中实现事务
+## 怎么在Spring中实现事务
 
 ```java
 @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
@@ -691,7 +691,7 @@ volatile关键字保证了**可见性**，**禁止指令重排**，**但是不�
 
 这五个特征保证了在红黑树中**最长路径不超过最短路径的两倍**，这样也就保证了查找的效率问题
 
-## ✍垃圾回收器
+## 垃圾回收器
 
 答：Serial（sei饿瑞藕）收集器（复制算法): 新生代**单线程**收集器，标记和清理都是单线程，优点是简单高效；
 
@@ -713,7 +713,7 @@ byte short int long
 
 boolean char float double
 
-## ✍Http 请求头里有哪些参数
+## Http 请求头里有哪些参数
 
 GET / HTTP/1.1 #**请求行:包含了请求方式GET/POST,请求资源路径(这里没有),所用协议HTTP1.1**
 #以下部分是请求头,如果有请求体,请求头和请求体之间要有一空行
@@ -728,7 +728,7 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like
 **Accept-Language**: zh-CN,zh;q=0.9#**浏览器支持的语言**,这个在浏览器上可以设置
 #以上部分是请求头
 
-## ✍Https的通信过程
+## Https的通信过程
 
 客户端发送请求到服务器端
 服务器端返回证书和公开密钥，公开密钥作为证书的一部分而存在
@@ -737,7 +737,7 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like
 客户端使用共享密钥解密数据
 SSL加密建立
 
-## ✍MYSQL创建索引
+## MYSQL创建索引
 
 ```sql
 CREATE INDEX index_name ON table_name (column_list)
@@ -783,7 +783,7 @@ CREATE INDEX index_name ON table_name (column_list)
 Server在LISTEN状态下，收到建立连接请求的SYN报文后，可以直接把ACK和SYN放在一个报文里发送给Client。而关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方也未必全部数据都发送给对方了，所以己方可以立即close，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送。
 ```
 
-## ✍InnoDB和MyISAM引擎之间的区别
+## InnoDB和MyISAM引擎之间的区别
 
 **1、InnoDB支持事务，MyISAM不支持；**
 
@@ -892,7 +892,7 @@ Integer count = null==map.get(a)?0:map.get(a)
 
 2.如果不从写hashcode的话会造成一些问题，比如使用HashMap容器的时候，我们使用自定义对象作为key，重写了equals方法，但是没有重写hashcode方法，那么同一个对象或者说equals相等的两个对象就会可能由于hashcode的不同打到不同的桶位上，这与预期不符，预期的话这种情况会达到同一个桶位上，又因为两个对象equals所以会覆盖的
 
-## ✍redirect和forward的区别
+## redirect和forward的区别
 
 **1.从地址栏显示来说**
 
@@ -918,7 +918,7 @@ forward:高.
 
 redirect:低.
 
-## ✍线程池的优势
+## 线程池的优势
 
 **1.线程池可以重复利用已创建的线程，一次创建可以执行多次任务，有效降低线程创建和销毁所造成的资源消耗；**
 **2.线程池技术使得请求可以快速得到响应，节约了创建线程的时间；**（解析：无线程池，那么执行多线程任务的时候就有创建线程+执行线程任务+销毁线程三个步骤，有了线程池，执行多线程的时候就只会有执行线程这一步操作，大大节约了性能消耗，提高了响应速度）
@@ -959,7 +959,7 @@ class Task implements Runnable {
 
 你会看到任务管理器性能中，线程数开始逐步上升，上升到一定程度java程序出现oom异常，线程数瞬间回落
 
-## ✍Callable接口的返回值怎么取到
+## Callable接口的返回值怎么取到
 
 答：通过实现Callable接口覆写call方法定义的任务需要使用线程池执行
 
@@ -995,7 +995,7 @@ class TaskCallable implements Callable<String> {
 
 **4.ExecutorService类的submit方法的返回值是Future接口类型，通过该接口的get方法我们能够取得任务中的call方法的返回值**
 
-## ✍Java的int类型
+## Java的int类型
 
 **1.int类型的取值范围**
 
@@ -1297,7 +1297,7 @@ false
 
 1.使用clone方法进行深克隆，"本体"也就是被克隆的对象需要**实现Cloneable空接口**，**覆写上帝类Object的clone方法**，**将clone方法权限改为public**，**返回值改为"本体类型"**，**内部调用上帝类的clone方法并强转为本体对象**，并且如果本体中存在类类型的属性（类属性的类也要实现Cloneabe接口，覆写clone方法等）那么也要这clone方法内部通过类类型属性所属的类的clone方法进行赋值与赋值（意思就是程序中user.setAddress(this.address.clone())这段代码要有）
 
-## ✍SpringBoot中常用的注解
+## SpringBoot中常用的注解
 
 @Autowired自动注入注解，用于注入属性对象
 
@@ -1323,7 +1323,7 @@ false
 
 Spring中声明式事务的开启很简单只要将方法上加入@Transactional注解就可以了，里边的参数指明事务的隔离级别，以及传播方式
 
-## ✍Synchronized锁升级的过程
+## Synchronized锁升级的过程
 
 答案来源：B站马士兵教育《因为一个volatile，阿里面试官对面试的Java程序员展开了。。。。。。》
 
@@ -3907,28 +3907,6 @@ class Solution {
 1.准备三个优点，三个缺点
 
 **禁忌**：优点当作缺点来说
-
-# 番外篇
-
-## 人与人之间的区别
-
-### 思想
-
-我思想
-
-老头思想体系
-
-### 认知
-
-学识+世界周遭的运行机理
-
-### 信息
-
-书籍+手机信息碎片化+人脉
-
-### 工作
-
-工作态度+工作能力+leader额外意思+身体
 
 
 
